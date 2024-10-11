@@ -1,0 +1,19 @@
+{
+  "name": "tys-ui-automation",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.5.5"
+  },
+  "dependencies": {
+    "playwright": "^1.47.2",
+    "test": "^3.3.0"
+  }
+}
