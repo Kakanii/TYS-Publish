@@ -83,3 +83,203 @@
 2024-10-11T06:25:32.064Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
 2024-10-11T06:26:02.601Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
 2024-10-11T06:26:02.603Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T13:42:41.876Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T13:42:42.567Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T13:42:42.567Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T13:43:05.687Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T13:43:05.688Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T13:43:06.933Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T13:43:07.611Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T13:43:07.611Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T13:43:29.433Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T13:43:29.433Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T13:43:30.743Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T13:43:31.421Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T13:43:31.425Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T13:43:53.226Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T13:43:53.227Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T13:46:06.513Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T13:46:07.088Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T13:46:07.089Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T13:46:30.807Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T13:46:30.807Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T13:51:22.051Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T13:51:22.634Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T13:51:22.634Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T13:51:46.050Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T13:51:46.050Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:09:36.823Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:09:37.392Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:09:37.393Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:10:02.507Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:10:02.507Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:13:13.107Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:13:13.692Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:13:13.692Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:13:37.152Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:13:37.152Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:15:10.182Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:15:10.790Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:15:10.791Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:15:35.666Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:15:35.667Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:18:06.942Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:18:07.539Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:18:07.539Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:20:46.794Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:20:46.795Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:37:16.458Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:37:17.057Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:37:17.057Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:37:34.027Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:37:34.028Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:40:59.054Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:40:59.613Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:40:59.613Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:41:11.662Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:41:11.662Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:47:56.290Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:47:56.871Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:47:56.871Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:48:14.105Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:48:14.105Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:51:11.690Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:51:12.245Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:51:12.246Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:51:23.996Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:51:23.996Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:52:45.473Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:52:46.018Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:52:46.018Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:53:00.961Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:53:00.961Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:54:20.765Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:54:21.306Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:54:21.306Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:54:36.460Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:54:36.461Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T14:55:42.892Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T14:55:43.429Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T14:55:43.429Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T14:56:00.130Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T14:56:00.130Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T15:42:18.273Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T15:42:18.848Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T15:42:18.853Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T15:42:33.457Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T15:42:33.457Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T15:45:49.578Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T15:45:50.148Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T15:45:50.152Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T15:46:04.445Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T15:46:04.445Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T15:46:39.343Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T15:46:39.911Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T15:46:39.911Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T15:46:58.058Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T15:46:58.058Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T15:56:23.153Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T15:56:23.692Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T15:56:23.692Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T15:56:55.383Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T15:56:55.383Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:15:50.870Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:15:51.466Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:15:51.466Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:16:25.823Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:16:25.824Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:17:03.678Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:17:04.256Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:17:04.260Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:17:40.026Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:17:40.027Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:23:00.101Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:23:00.621Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:23:00.621Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:23:40.399Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:23:40.400Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:25:32.037Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:25:32.595Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:25:32.595Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:28:32.471Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:28:32.471Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:32:03.782Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:32:04.342Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:32:04.347Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:32:47.712Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:32:47.712Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:35:27.389Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:35:27.929Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:35:27.929Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:36:37.561Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:36:37.562Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:45:58.402Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:45:58.940Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:45:58.940Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:47:17.644Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:47:17.645Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:48:05.462Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:48:06.006Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:48:06.006Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:49:49.443Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:49:49.443Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T16:51:07.731Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T16:51:08.276Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T16:51:08.277Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T16:52:30.122Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T16:52:30.122Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:14:08.608Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:14:09.142Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:14:09.142Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:14:21.483Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:14:21.483Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:15:45.457Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:15:46.010Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:15:46.011Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:16:00.801Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:16:00.801Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:16:40.192Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:16:40.733Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:16:40.734Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:21:40.742Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:21:40.743Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:42:31.575Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:42:32.146Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:42:32.146Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:45:32.129Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:45:32.129Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:48:17.316Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:48:17.882Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:48:17.882Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:50:49.570Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:50:49.570Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:50:55.422Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:50:55.960Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:50:55.964Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:51:36.404Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:51:36.404Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T17:58:16.894Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T17:58:17.462Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T17:58:17.463Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T17:58:59.730Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T17:58:59.730Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T18:41:24.965Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T18:41:25.528Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T18:41:25.532Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T18:42:07.346Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T18:42:07.346Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T18:42:39.830Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T18:42:40.311Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T18:42:40.312Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T18:43:15.560Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T18:43:15.560Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T18:45:27.229Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T18:45:27.788Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T18:45:27.788Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T18:46:05.243Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T18:46:05.243Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4
+2024-10-11T18:49:55.236Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Resetting all credentials.
+2024-10-11T18:49:55.834Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Worker 0 acquired credential: automation1@maildrop.cc
+2024-10-11T18:49:55.834Z [INFO] [Worker 0] [Suite: Credential Management] [Test: ] - Current active workers: 1/4
+2024-10-11T18:50:27.453Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Released credential: automation1@maildrop.cc
+2024-10-11T18:50:27.453Z [INFO] [Worker undefined] [Suite: Credential Management] [Test: ] - Current active workers: 0/4

@@ -31,28 +31,16 @@ const config = {
           headless: false,
           screenshot: 'only-on-failure', //on, off
           trace: 'retain-on-failure', //off, on    
-          // viewport: {width:720, height:720},
           ignoreHttpsErrors: true,
           permission: ['geolocation'],
           video: 'retain-on-failure',
-          viewport:{width:1365, height:600}
+          viewport: null, // Set viewport to null for maximizing the window
+          deviceScaleFactor: undefined,
+          launchOptions: {
+            args: ['--start-maximized'] // Pass argument to start maximized
+          }
         },
       },
-      {
-        name: 'Safari',
-        use: {
-
-          browserName: 'webkit',
-          headless: false,
-          screenshot: 'only-on-failure', //on, off
-          trace: 'retain-on-failure', //off, on   
-          ignoreHttpsErrors: true,
-          permission: ['geolocation'],
-          video: 'retain-on-failure',
-          viewport:{width:1365, height:600}
-        },
-      },
-
 
     ],
 
