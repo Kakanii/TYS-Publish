@@ -18,8 +18,11 @@ export class companyProfilePage extends Base {
             // Locators for company profile sections
             companyInfoSection: page.locator("//p[text()='Company Information']").first(),
             dateSelector: page.locator("//input[@placeholder='Select Date']"),
+            dateYear: page.getByRole('combobox'),
+            dateMonth: page.locator("//div[contains(@class, 'react-datepicker__month-dropdown-container')]//select[contains(@class, 'react-datepicker__month-select')]"),
+
             dateToSelect: page.getByLabel('Choose Tuesday, October 1st,'),
-            selectMonthButton: page.locator("//button[contains(.,'Select Month')]"),
+            selectMonthButton: page.locator("(//button[contains(@class,'chakra-button chakra-menu__menu-button')])[2]"),
             monthOption: page.getByRole('menuitemradio', { name: 'January' }),
             companyDescriptionInput: page.getByPlaceholder('Write few words about the'),
 
@@ -44,7 +47,7 @@ export class companyProfilePage extends Base {
 
             saveAndContinue: page.locator("//button[text()='Save and Continue']"),
 
-            managementSection: page.locator("//p[text()='Your Executives and Management team']"),
+            managementSection: page.locator("//p[text()='Your Executives and Management team']").first(),
             assignContact: this.page.getByRole('button', { name: 'Assign Contact' }),
             assignContactManagement: page.getByText('Assign Contact to Management'),
             existingContact: page.locator('label').filter({ hasText: 'Choose an Existing Contact' }),
@@ -60,7 +63,7 @@ export class companyProfilePage extends Base {
             addContact: page.getByRole('button', { name: 'Add Contact' }),
 
             // Questionnaire
-            assignQuestionnaire: page.locator("//p[text()='Assigned Questionnaires by the Buyers to be visible and be compliant']").first(),
+            assignQuestionnaire: page.locator("//p[text()='Assigned Questionnaires by the Buyers to be visible and be compliant']"),
             notStarted: page.locator("//span[text()='Not Started']"),
             inProgress: page.locator("//span[text()='In Progress']"),
             readyToPublish: page.locator("//span[text()='Ready to Publish']"),
@@ -99,9 +102,8 @@ export class companyProfilePage extends Base {
             await this.locators.companyInfoSection.scrollIntoViewIfNeeded();
             const companyDescription = faker.company.catchPhrase();
             if (await this.locators.dateSelector.isVisible()) {
-                await this.selectDate('Choose Saturday, January 13th,');
-                await this.page.locator("(//button[contains(@class,'chakra-button chakra-menu__menu-button')])[2]").click();
-                //await this.locators.selectMonthButton.click();
+                await this.selectDate('Choose Saturday, January 20th,');
+                await this.locators.selectMonthButton.click();
                 await this.locators.monthOption.click();
             }
             await this.locators.companyDescriptionInput.fill(faker.company.catchPhrase());
@@ -111,13 +113,13 @@ export class companyProfilePage extends Base {
     }
 
     async selectDate(dateLabel) {
-        await this.page.getByPlaceholder('Select Date').click();
-        await this.page.getByRole('combobox').nth(1).selectOption('2024');
-        await this.page.locator("//div[contains(@class, 'react-datepicker__month-dropdown-container')]//select[contains(@class, 'react-datepicker__month-select')]").selectOption('0');
+        await this.locators.dateSelector.click();
+        await this.locators.dateYear.nth(1).selectOption('2024');
+        await this.locators.dateMonth.selectOption('0');
         console.log("Attempting to select date:", dateLabel);
         const dateLabelElement = await this.page.getByLabel(dateLabel);
         if (await dateLabelElement.count() > 0) {
-            await dateLabelElement.click(); 
+            await dateLabelElement.click();
         } else {
             console.error(`Date label '${dateLabel}' not found.`);
         }
@@ -176,24 +178,24 @@ export class companyProfilePage extends Base {
     async fillEmployeeDetails() {
         await this.fillSection('Additional Information', async () => {
             await this.locators.additionalInformation.scrollIntoViewIfNeeded();
-            if (!await this.locators.stockExchange.isVisible()) {
+            if (await this.locators.stockExchange.isVisible()) {
                 await this.locators.stockExchange.click();
-                await this.locators.fullTimeEmployeesInput.fill("2");
-                await this.locators.temporaryEmployeesInput.fill("2");
+                await this.locators.fullTimeEmployeesInput.fill("5");
+                await this.locators.temporaryEmployeesInput.fill("5");
             }
 
         });
     }
 
-    async saveAndContinue() {
+    async saveAndContinue(sectionName) {
         this.page.waitForTimeout(3000);
         if (await this.locators.saveAndContinue.isVisible()) {
             await this.locators.saveAndContinue.click();
-            console.log("Saved and continued to the next section.");
+            console.log(`Saved and continued to the next section: ${sectionName}`);
         } else {
-            console.log("Save and Continue button is not visible");
+            console.log(`Save and Continue button is not visible in section: ${sectionName}`);
         }
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(5000);
     }
 
     async checkNotification(expectedMessage) {
@@ -213,11 +215,11 @@ export class companyProfilePage extends Base {
     }
 
     async fillManagement() {
-        try {
-            if (!this.locators.managementSection) {
-                console.error("Management section locator is not initialized.");
-                return;
-            }
+        await this.page.waitForTimeout(5000);
+            // if (!this.locators.managementSection) {
+            //     console.error("Management section locator is not initialized.");
+            //     return;
+            // }
 
             if (await this.locators.managementSection.isVisible()) {
                 const positions = [
@@ -252,18 +254,14 @@ export class companyProfilePage extends Base {
                         await this.page.waitForTimeout(5000);
                     }
                 }
-                await this.saveAndContinue();
             }
-        } catch (error) {
-            console.error("Error in fillManagement:", error);
-        }
+        await this.saveAndContinue("Questionnaires");
     }
 
     async navigateToQuestionnaires() {
         console.log("Assigned Questionnaires by the Buyers to be visible and be compliant");
-        await this.page.waitForTimeout(5000);
-        // const assignVisible = await this.locators.assignQuestionnaire.isVisible();
-        // console.log(`Assigned Questionnaire visibility: ${assignVisible}`);
+        const assignVisible = await this.locators.assignQuestionnaire.isVisible();
+        console.log(`Assigned Questionnaire visibility: ${assignVisible}`);
 
         if (await this.locators.notStarted.isVisible()) {
             console.log("Not Started Questionnaire is visible");
@@ -369,24 +367,25 @@ export class companyProfilePage extends Base {
         await this.fillTaxDetails();
         await this.fillTaxRegistrationDocument()
         await this.fillEmployeeDetails();
-        await this.saveAndContinue();
+        await this.saveAndContinue('UNSPSC Codes section');
         await this.checkNotification('Company profile has been saved successfully');
     }
 
     async fillProductsServices() {
         console.log("UNSPSC Codes section is Filled");
-        await this.saveAndContinue();
+        await this.saveAndContinue("External Identifiers section");
     }
 
     async fillExternalIdentifiers() {
         console.log("Attempting to link your profile on partner ecosystems.");
 
         if (await this.page.locator("//div[h3[contains(@class, 'chakra-step__title')]/p[text()='External Identifiers'] and p[contains(@class, 'chakra-step__description')]/p[text()='Verification pending']]").isVisible()) {
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(10000);
             await this.locators.management.click();
+            console.log("Successfully clicked on Management.");
         }
         if (await this.page.locator("//div[h3[contains(@class, 'chakra-step__title')]/p[text()='External Identifiers'] and p[contains(@class, 'chakra-step__description')]/p[text()='completed']]").isVisible()) {
-            await this.saveAndContinue();
+            await this.saveAndContinue("Management");
         }
         console.log("Successfully linked your profile.");
     }
