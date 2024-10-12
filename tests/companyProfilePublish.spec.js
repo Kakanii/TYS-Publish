@@ -33,13 +33,15 @@ test.describe('Verify Supplier Registration Page', () => {
         const cpp = new companyProfilePage(page, expect);
         // Login
         await cpp.login('ramaautobuyersupplierpublish@maildrop.cc', 'Password1');
+        //await cpp.login('ramaahmttool@maildrop.cc', 'Password1');
+        //await cpp.login('ramaautobuyetestr@maildrop.cc', 'Password1');
         // Fill the form sections
         await cpp.fillCompanyProfile();
         await cpp.fillProductsServices();
-       // await cpp.fillExternalIdentifiers();
-       // await cpp.fillManagement();
-        //await cpp.navigateToQuestionnaires();
-        //await cpp.saveAndContinue();
+        await cpp.fillExternalIdentifiers();
+        await cpp.fillManagement();
+        await cpp.navigateToQuestionnaires();
+        await cpp.saveAndContinue();
     });
 
     });
