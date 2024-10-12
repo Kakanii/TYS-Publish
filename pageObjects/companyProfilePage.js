@@ -102,7 +102,7 @@ export class companyProfilePage extends Base {
             await this.locators.companyInfoSection.scrollIntoViewIfNeeded();
             const companyDescription = faker.company.catchPhrase();
             if (await this.locators.dateSelector.isVisible()) {
-                await this.selectDate('Choose Saturday, January 20th,');
+                await this.selectDate('Choose Saturday, January 13th,');
                 await this.locators.selectMonthButton.click();
                 await this.locators.monthOption.click();
             }
