@@ -152,6 +152,9 @@ test.describe('Verify Supplier Registration Page', () => {
         await mailPage.clickByRole('button', 'Publish');
         await mailPage.verifyText('Publish Profile')
         await mailPage.clickByRole('button', 'Publish');
+        await mailPage.verifyText('Insights At a glance');
+        await mailPage.verifyelement('Insights At a glance');
+
     });
 
 });

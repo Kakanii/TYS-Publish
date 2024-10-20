@@ -653,6 +653,11 @@ exports.maildropPage = class maildropPage extends Base {
         await expect(textLocator).toBeVisible();
         console.log(`Verified that the text "${expectedText}" is visible.`);
     }
+    async verifyelement(expectedText) {
+        const textLocator = newPage.locator('#root');
+        await expect(textLocator).toContainText(expectedText);
+        console.log(`Verified that the text "${expectedText}" is visible.`);
+    }
 
 }
 
