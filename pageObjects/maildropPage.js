@@ -589,14 +589,21 @@ exports.maildropPage = class maildropPage extends Base {
 
     // Method to fill text based on placeholder
     async fillFieldByPlaceholder(placeholder, text) {
-        const element = await newPage.getByPlaceholder(placeholder);
-        await expect(element).toBeVisible();
-        await element.fill(text);
-        console.log(`Filled the field with placeholder - ${placeholder}: "${text}"`);
+        try {
+            const element = await newPage.getByPlaceholder(placeholder);
+            await expect(element).toBeVisible();
+            await element.fill(text);
+            console.log(`Filled the field with placeholder - ${placeholder}: "${text}"`);
+        } catch (error) {
+            const element = await newPage.getByPlaceholder(placeholder);
+            await expect(element).toBeVisible();
+            await element.first().fill(text);
+            console.log(`Filled the field with placeholder - ${placeholder}: "${text}"`);
+        }
     }
 
     async fillFieldByLabel(Label, text) {
-        const element = await newPage.getByLabel(Label);
+        const element = await newPage.getByLabel(Label, { exact: true });
         await expect(element).toBeVisible();
         await element.click();
         await element.fill(text);
@@ -616,7 +623,7 @@ exports.maildropPage = class maildropPage extends Base {
         await element.click();
         try {
             const fileChooser = await fileChooserPromise;
-            const filepath = '/Users/MAC-RAC-06/SampleProject/TYS-Publish/tests/uploads/pngtree.jpg';
+            const filepath = 'uploads/pngtree.jpg';
             await fileChooser.setFiles(path.join(__dirname, filepath));
             console.log(`File successfully uploaded for label - "${label}" with text - "${text}" from path: "${filepath}"`);
         } catch (error) {
@@ -642,7 +649,7 @@ exports.maildropPage = class maildropPage extends Base {
     }
 
     async verifyText(expectedText) {
-        const textLocator = newPage.getByText(expectedText); 
+        const textLocator = newPage.getByText(expectedText);
         await expect(textLocator).toBeVisible();
         console.log(`Verified that the text "${expectedText}" is visible.`);
     }

@@ -119,16 +119,32 @@ test.describe('Verify Supplier Registration Page', () => {
         await mailPage.clickByRole('button', 'Save and Continue');
         await mailPage.clickByRole('button', 'Save and Continue');
 
-        // Assign Contact
-        for (let i = 0; i < 3; i++) {
-            await mailPage.clickByRole('button', 'Assign Contact');
-            await mailPage.clickByRole('button', 'Choose an Existing Contact');
-            await mailPage.selectByRole('menuitemradio', 'First Name Last Name - CEO');
-            await mailPage.clickByRole('button', 'Add Contact');
+        await mailPage.clickByRole('button', 'Assign Contact');
+        await mailPage.clickByRole('button', 'Choose an Existing Contact');
+        await mailPage.selectByRole('menuitemradio', 'First Name Last Name - CEO');
+        await mailPage.clickByRole('button', 'Add Contact');
 
-        }
+        await mailPage.clickByRole('button', 'Assign Contact');
+        await mailPage.clickByRole('button', 'Choose an Existing Contact');
+        await mailPage.selectByRole('menuitemradio', 'First Name Last Name - CEO');
+        await mailPage.clickByRole('button', 'Add Contact');
+
+        await mailPage.clickByRole('button', 'Assign Contact');
+        await mailPage.fillFieldByPlaceholder('Enter First Name', 'sample');
+        await mailPage.fillFieldByPlaceholder('Enter Last Name', 'sample');
+        await mailPage.clickByRole('button', 'Select Year of Birth');
+        await mailPage.selectByRole('menuitemradio', '2006');
+        await mailPage.fillFieldByPlaceholder('Enter Job Title', 'dfo');
+        await mailPage.fillFieldByPlaceholder('Enter Phone Number', '+1 (123) 456-789');
+        await mailPage.fillFieldByLabel('Email Address', 'sample@yopmail.com')
+        await mailPage.clickByRole('button', 'Select From Existing locations');
+        await page.getByRole('menu').click();
+        await mailPage.clickByRole('button', 'Add Contact');
+
+
         await mailPage.clickByRole('button', 'Continue');
         await mailPage.clickByRole('button', 'Save and Continue');
+        await mailPage.verifyText('%')
 
         // Verify Profile Readiness and Publish
         await mailPage.verifyText('Profile Readiness')
@@ -137,6 +153,5 @@ test.describe('Verify Supplier Registration Page', () => {
         await mailPage.verifyText('Publish Profile')
         await mailPage.clickByRole('button', 'Publish');
     });
-
 
 });
