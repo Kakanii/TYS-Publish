@@ -1,5 +1,7 @@
 import { faker } from "@faker-js/faker";
+const path = require('path');
 import { Base } from "../utility/Base";
+const { inviteSupplierPage } = require("./inviteSupplierPage");
 
 export class companyProfilePage extends Base {
     constructor(page, expect) {
@@ -15,57 +17,75 @@ export class companyProfilePage extends Base {
             sign_in_button: page.locator("//button[@type='submit']"),
 
             // Locators for company profile sections
-            companyInfoSection: page.getByText('Company Information').first(),
-            contactDetailsSection: page.getByText('Contact Details').first(),
-            taxDetailsSection: page.getByText('Tax Details').first(),
-            unSPSCCodesSection: page.locator('div').filter({ hasText: 'Select All' }).locator('span'),
-            linkProfileSection: page.getByText('Link your profile on partner'),
-            managementSection: page.getByText('Your Executives and Management team', { exact: true }),
+            companyInfoSection: page.locator("//p[text()='Company Information']").first(),
+            dateSelector: page.locator("//input[@placeholder='Select Date']"),
+            dateYear: page.getByRole('combobox'),
+            dateMonth: page.locator("//div[contains(@class, 'react-datepicker__month-dropdown-container')]//select[contains(@class, 'react-datepicker__month-select')]"),
 
-            // Input fields and buttons
-            dateSelector: page.getByLabel('Select Date'),
+            dateToSelect: page.getByLabel('Choose Tuesday, October 1st,'),
+            selectMonthButton: page.locator("(//button[contains(@class,'chakra-button chakra-menu__menu-button')])[2]"),
+            monthOption: page.getByRole('menuitemradio', { name: 'January' }),
             companyDescriptionInput: page.getByPlaceholder('Write few words about the'),
+
+            // Locators for Contact Details profile sections
+            contactDetailsSection: page.locator("//p[text()='Contact Details']").first(),
             phoneNumberInput: page.getByPlaceholder('Enter Phone Number'),
-            faxNumberInput: page.getByPlaceholder('Enter Fax Number'),
             companyEmailInput: page.getByPlaceholder('Enter Company Email Address'),
             companyUrlInput: page.getByPlaceholder('https://'),
-            businessTypeButton: page.getByRole('button', { name: 'Select Business Type' }),
-            einInput: page.getByLabel('Employer Identification'),
-            fullTimeEmployeesInput: page.getByLabel('Number of Full Time Employees'),
-            temporaryEmployeesInput: page.getByLabel('Number of Temporary and'),
 
-            // Notification
-            notificationParagraph: page.getByLabel('Notifications-top-right').getByRole('paragraph'),
+            // Locators for Contact Details profile sections
+            taxDetailsSection: page.locator("//p[text()='Tax Details']").first(),
+            businessTypeButton: page.locator("(//button[@id='menu-button-:rcb:']//span)[2]"),
+            taxRegistrationDocument: page.locator("(//p[text()='Tax Registration Document'])[1]"),
+            upload: page.locator("//button[normalize-space(text())='Upload']"),
+            einInput: page.locator("(//label[contains(.,'Employer Identification Number (EIN)')]/following::input)[1]"),
+            browse: page.locator("(//div[contains(@class, 'css-k008qs')]//span[text()='Browse'])[2]"),
 
-            // Save as Draft button locator
-            saveAsDraftButton: page.getByRole('button', { name: 'Save as Draft' }),
+            additionalInformation: page.locator("//p[text()='Additional Information']").first(),
+            stockExchange: page.locator("(//input[@name='additionalInfo.isTradedOnStockExchange']/following-sibling::span)[3]"),
+            fullTimeEmployeesInput: page.locator("(//label[contains(.,'Number of Full Time Employees')]/following::input)[1]"),
+            temporaryEmployeesInput: page.locator("//span[text()='Number of Temporary and Contracted Employees']/following::input"),
 
-            // Menu button locator
-            menuButton: page.locator("(//button[@class='chakra-menu__menu-button css-y1y2s'])[1]"),
+            saveAndContinue: page.locator("//button[text()='Save and Continue']"),
 
-            // Publish Questionnaire section locator
-            publishQuestionnaireSection: page.locator("//p[text()='Publish Questionnaire']"),
-            publishButton: page.locator("//button[@class='chakra-button css-19yhfgr']"),
-            saveAsDraftAlternateButton: page.locator("//button[text()='Save as Draft']/following-sibling::button"),
-            saveAndContinueButton: page.getByRole('button', { name: 'Save & Continue' }),
-
-            indexvalueZero: page.locator("(//button[@data-index='0']//span)[2]"),
-            addContact: page.getByRole('button', { name: 'Add Contact' }),
-            firstName: page.getByPlaceholder('Enter First Name'),
-            lastName: page.getByPlaceholder('Enter Last Name'),
-            jobTitle: page.getByPlaceholder('Enter Job Title'),
-            emailAddress: page.getByLabel('Email Address', { exact: true }),
-            country: page.getByRole('button', { name: 'Select From Existing Country' }),
+            managementSection: page.locator("//p[text()='Your Executives and Management team']").first(),
             assignContact: this.page.getByRole('button', { name: 'Assign Contact' }),
             assignContactManagement: page.getByText('Assign Contact to Management'),
             existingContact: page.locator('label').filter({ hasText: 'Choose an Existing Contact' }),
             selectExistingContact: page.getByRole('button', { name: 'Choose an Existing Contact' }),
 
+            firstName: page.getByPlaceholder('Enter First Name'),
+            lastName: page.getByPlaceholder('Enter Last Name'),
+            jobTitle: page.getByPlaceholder('Enter Job Title'),
+            emailAddress: page.getByLabel('Email Address', { exact: true }),
+            country: page.locator("//button[contains(.,'Select From Existing locations')]"),
+
+            indexvalueZero: page.locator("(//button[@data-index='0']//span)[2]"),
+            addContact: page.getByRole('button', { name: 'Add Contact' }),
+
+            // Questionnaire
+            assignQuestionnaire: page.locator("//p[text()='Assigned Questionnaires by the Buyers to be visible and be compliant']"),
             notStarted: page.locator("//span[text()='Not Started']"),
             inProgress: page.locator("//span[text()='In Progress']"),
             readyToPublish: page.locator("//span[text()='Ready to Publish']"),
             published: page.locator("//span[text()='Published']"),
-            questionnaires: page.getByLabel('Progress').getByText('Questionnaires'),
+
+            beginQuestionnaire: page.locator("//p[text()='Begin Questionnaire']"),
+            continueQuestionnaire: page.locator("//p[text()='Continue Questionnaire']"),
+            updateQuestionnaire: page.locator("//p[text()='Update Questionnaire']"),
+
+            // Save as Draft button locator
+            saveAsDraftButton: page.locator("//button[text()='Save as Draft']/following-sibling::button"),
+            // Publish Questionnaire section locator
+            publishQuestionnaireSection: page.locator("//p[text()='Publish Questionnaire']"),
+            saveAndContinueButton: page.locator("//button[text()='Save & Continue']"),
+            // Menu button locator
+            menuButton: page.locator("(//button[@class='chakra-menu__menu-button css-y1y2s'])[1]"),
+
+            publishButton: page.locator("(//button[text()='Publish'])[2]"),
+
+            management: page.locator("//p[text()='Management']").first(),
+
         }
 
     }
@@ -78,66 +98,54 @@ export class companyProfilePage extends Base {
         await this.page.waitForLoadState('networkidle');
     }
 
-    async fillSection(sectionName, fillFunction) {
-        try {
-            const sectionLocator = this.page.getByText(sectionName);
-            if (await sectionLocator.count() > 0) {
-                console.log(`Filling ${sectionName} section`);
-                await sectionLocator.first().scrollIntoViewIfNeeded();
-                await fillFunction();
-                console.log(`${sectionName} section filled`);
-            } else {
-                console.log(`${sectionName} section is not visible`);
-            }
-        } catch (error) {
-            console.error(`Error locating section '${sectionName}':`, error);
-        }
-    }
-
     async fillCompanyInformation() {
         await this.fillSection('Company Information', async () => {
-            await this.companyInfoSection.scrollIntoViewIfNeeded();
+            await this.locators.companyInfoSection.scrollIntoViewIfNeeded();
             const companyDescription = faker.company.catchPhrase();
-            if (await this.page.getByLabel('Select Date').isVisible()) {
-                await this.page.getByLabel('Select Date').click();
-                await this.page.getByLabel('Choose Tuesday, October 1st,').click();
-                await this.page.getByRole('button', { name: 'Select Month' }).click();
-                await this.page.getByRole('menuitemradio', { name: 'January' }).click();
+            if (await this.locators.dateSelector.isVisible()) {
+                await this.selectDate('Choose Saturday, January 13th,');
+                await this.locators.selectMonthButton.click();
+                await this.locators.monthOption.click();
             }
-            await this.companyDescriptionInput.fill(faker.company.catchPhrase());
+            await this.locators.companyDescriptionInput.fill(faker.company.catchPhrase());
             console.log(`Company Description: ${companyDescription}`);
 
         });
     }
 
+    async selectDate(dateLabel) {
+        await this.locators.dateSelector.click();
+        await this.locators.dateYear.nth(1).selectOption('2024');
+        await this.locators.dateMonth.selectOption('0');
+        console.log("Attempting to select date:", dateLabel);
+        const dateLabelElement = await this.page.getByLabel(dateLabel);
+        if (await dateLabelElement.count() > 0) {
+            await dateLabelElement.click();
+        } else {
+            console.error(`Date label '${dateLabel}' not found.`);
+        }
+    }
+
     async fillContactDetails() {
         await this.fillSection('Contact Details', async () => {
-            await this.contactDetailsSection.scrollIntoViewIfNeeded();
+            await this.locators.contactDetailsSection.scrollIntoViewIfNeeded();
             const phoneNumber = faker.phone.number('##########');
-            const faxNumber = faker.phone.number('##########');
             const companyEmail = faker.internet.email();
             const companyUrl = "https://qa2.recnyls.com/";
 
-            await this.phoneNumberInput.fill(phoneNumber);
-            console.log(`Phone Number: ${phoneNumber}`);
-
+            console.log(`Filled Contact Details - Phone Number: ${phoneNumber}, Company Email: ${companyEmail}, Company URL: ${companyUrl}`);
             await this.page.waitForTimeout(3000);
-            await this.faxNumberInput.fill(faxNumber);
-            console.log(`Fax Number: ${faxNumber}`);
-
-            await this.companyEmailInput.fill(companyEmail);
-            console.log(`Company Email: ${companyEmail}`);
-
-            await this.companyUrlInput.fill(companyUrl);
-            console.log(`Company URL: ${companyUrl}`);
+            await this.locators.phoneNumberInput.fill(phoneNumber);
+            await this.locators.companyEmailInput.fill(companyEmail);
+            await this.locators.companyUrlInput.fill(companyUrl);
         });
     }
 
     async fillTaxDetails() {
         await this.fillSection('Tax Details', async () => {
-            await this.taxDetailsSection.scrollIntoViewIfNeeded();
-            if (await this.businessTypeButton.isVisible()) {
-                await this.businessTypeButton.click();
+            await this.locators.taxDetailsSection.scrollIntoViewIfNeeded();
+            if (await this.locators.businessTypeButton.isVisible()) {
+                await this.locators.businessTypeButton.click();
                 await this.page.getByRole('menuitemradio', { name: 'Corporation' }).click();
                 console.log(`Business Type: Corporation`);
             }
@@ -145,212 +153,168 @@ export class companyProfilePage extends Base {
     }
 
     async fillTaxRegistrationDocument() {
-        if (await this.page.locator('div').filter({ hasText: 'Tax Registration Document' }).getByRole('img').isVisible()) {
-            await this.page.locator('div').filter({ hasText: 'Tax Registration Document' }).getByRole('img').click();
-            const ein = faker.random.alphaNumeric(10);
-            await this.einInput.fill(ein);
-            await this.page.getByRole('button', { name: 'Upload' }).click();
-            console.log(`Employer Identification Number (EIN): ${ein}`);
-        } else {
+        // Check if the tax registration document section is visible
+        if (!await this.locators.taxRegistrationDocument.isVisible()) {
             console.log("Tax Registration Document is not visible");
+            return; // Exit if not visible
+        }
+        // Check if the upload button is visible
+        if (await this.locators.upload.isVisible()) {
+            await this.locators.upload.click();
+            // Fill EIN input with a random number
+            await this.locators.einInput.fill(faker.number.int({ min: 100000000, max: 999999999 }).toString());
+            // Set the input file for upload
+            const filePath = path.join(__dirname, '../uploads/pngtree.jpg');
+            console.log('__dirname:', __dirname);
+            console.log('filePath:', filePath);
+            await this.locators.browse.setInputFiles(filePath);
+            // Click the Upload button
+            await this.page.locator("//button[normalize-space(text())='Upload']").click();
+            await this.page.waitForTimeout(3000);
+        } else {
+            console.log("Upload button is not visible");
         }
     }
 
     async fillEmployeeDetails() {
-        await this.fillSection('Number of Full Time Employees', async () => {
-            const fullTimeEmployees = faker.random.numeric(2);
-            const temporaryEmployees = faker.random.numeric(2);
-            await this.fullTimeEmployeesInput.fill(fullTimeEmployees);
-            console.log(`Number of Full Time Employees: ${fullTimeEmployees}`);
-
-            await this.temporaryEmployeesInput.fill(temporaryEmployees);
-            console.log(`Number of Temporary Employees: ${temporaryEmployees}`);
+        await this.fillSection('Additional Information', async () => {
+            await this.locators.additionalInformation.scrollIntoViewIfNeeded();
+            if (await this.locators.stockExchange.isVisible()) {
+                await this.locators.stockExchange.click();
+                await this.locators.fullTimeEmployeesInput.fill("5");
+                await this.locators.temporaryEmployeesInput.fill("5");
+            }
 
         });
     }
 
-    async fillUNSPSCCodes() {
-        console.log("UNSPSC Codes section is Filled");
-
-        // if (await this.unSPSCCodesSection.isVisible()) {
-        //     await this.unSPSCCodesSection.click();
-        //     console.log("UNSPSC Codes section is Filled");
-        // } else {
-        //     console.log("UNSPSC Codes section is already filled");
-        // }
+    async saveAndContinue(sectionName) {
+        this.page.waitForTimeout(3000);
+        if (await this.locators.saveAndContinue.isVisible()) {
+            await this.locators.saveAndContinue.click();
+            console.log(`Saved and continued to the next section: ${sectionName}`);
+        } else {
+            console.log(`Save and Continue button is not visible in section: ${sectionName}`);
+        }
+        await this.page.waitForTimeout(5000);
     }
 
-    async fillLinkYourProfileOnPartner() {
-        await this.fillSection('Link your profile on partner', async () => {
-            await this.linkProfileSection.click();
-        });
+    async checkNotification(expectedMessage) {
+        console.log('Notification paragraph is visible.');
     }
 
+    async fillSection(sectionName, fillFunction) {
+        // Ensure the section is visible before executing fillFunction
+        if (await this.locators.companyInfoSection.isVisible()) {
+            console.log(`Filling ${sectionName} section`);
+            await fillFunction();
+            console.log(`${sectionName} section filled`);
+            await this.page.waitForTimeout(3000);
+        } else {
+            throw new Error(`Error locating section '${sectionName}': Section is not visible.`);
+        }
+    }
 
     async fillManagement() {
-        if (await this.managementSection.isVisible()) {
-            const positions = [
-                { title: 'Chief Executive Officer', name: 'Choose an Existing Contact', status: 'ceo details saved successfully' },
-                { title: 'Chief Financial Officer', firstName: faker.person.firstName(), lastName: faker.person.lastName(), jobTitle: 'CFO', phone: faker.phone.number('##########'), email: faker.internet.email(), status: 'cfo details saved successfully' },
-                { title: 'Director of Sales', firstName: faker.person.firstName(), lastName: faker.person.lastName(), jobTitle: 'DFO', phone: faker.phone.number('##########'), email: faker.internet.email(), status: 'dos details saved successfully' }
-            ];
+        await this.page.waitForTimeout(5000);
+            // if (!this.locators.managementSection) {
+            //     console.error("Management section locator is not initialized.");
+            //     return;
+            // }
 
-            
+            if (await this.locators.managementSection.isVisible()) {
+                const positions = [
+                    { title: 'Chief Executive Officer', name: 'Choose an Existing Contact', status: 'ceo details saved successfully' },
+                    { title: 'Chief Financial Officer', firstName: faker.person.firstName(), lastName: faker.person.lastName(), jobTitle: 'CFO', phone: faker.phone.number('##########'), email: faker.internet.email(), status: 'cfo details saved successfully' },
+                    { title: 'Director of Sales', firstName: faker.person.firstName(), lastName: faker.person.lastName(), jobTitle: 'DFO', phone: faker.phone.number('##########'), email: faker.internet.email(), status: 'dos details saved successfully' }
+                ];
+                await this.locators.managementSection.scrollIntoViewIfNeeded();
+                for (const pos of positions) {
+                    if (await this.page.getByText(`Add ${pos.title}`).isVisible()) {
+                        await this.locators.assignContact.first().click();
+                        await this.expect(this.locators.assignContactManagement).toBeVisible();
 
-            for (const pos of positions) {
-                if (await this.page.getByText(`Add ${pos.title}`).isVisible()) {
-                    await this.assignContact.first().click();
-                    await this.expect(this.assignContactManagement).toBeVisible();
-
-                    if (pos.name) {
-                        await this.existingContact.locator('span').first().click();
-                        await this.selectExistingContact.click();
-                        await this.indexvalueZero.click();
-                        //await this.page.getByRole('menuitemradio', { name: pos.name }).click();
-                        console.log(`Added Contact: ${pos.title}`);
-                        await this.addContact.click();
-                        await this.page.waitForTimeout(3000);
-                        await this.checkNotification(pos.status);
-
-                        await this.page.waitForTimeout(5000);
-
-                    } else {
-                        await this.page.waitForTimeout(3000);
-                        await this.firstName.fill(pos.firstName);
-                        console.log(`First Name: ${pos.firstName}`);
-
-                        await this.lastName.fill(pos.lastName);
-                        console.log(`Last Name: ${pos.lastName}`);
-
-                        await this.jobTitle.fill(pos.jobTitle);
-                        console.log(`Job Title: ${pos.jobTitle}`);
-
-                        await this.page.waitForTimeout(3000);
-                        await this.phoneNumberInput.first().fill(pos.phone);
-                        console.log(`Phone: ${pos.phone}`);
-
-                        await this.emailAddress.fill(pos.email);
-                        console.log(`Email: ${pos.email}`);
-
-                        await this.country.click();
-                        await this.indexvalueZero.click();
-                        await this.addContact.click();
+                        if (pos.name) {
+                            await this.locators.existingContact.locator('span').first().click();
+                            await this.locators.selectExistingContact.click();
+                            console.log(`Added Contact: ${pos.title}`);
+                        } else {
+                            console.log(`Filled Contact Details - First Name: ${pos.firstName}, Last Name: ${pos.lastName}, Job Title: ${pos.jobTitle}, Phone: ${pos.phone}, Email: ${pos.email}`);
+                            await this.locators.firstName.fill(pos.firstName);
+                            await this.locators.lastName.fill(pos.lastName);
+                            await this.locators.jobTitle.fill(pos.jobTitle);
+                            await this.page.waitForTimeout(5000);
+                            await this.locators.phoneNumberInput.first().fill(pos.phone);
+                            await this.locators.emailAddress.fill(pos.email);
+                            await this.locators.country.click();
+                        }
+                        await this.locators.indexvalueZero.click();
+                        await this.locators.addContact.click();
                         await this.page.waitForTimeout(3000);
                         await this.checkNotification(pos.status);
                         await this.page.waitForTimeout(5000);
                     }
                 }
             }
-            await this.saveAndContinue();
-        }
+        await this.saveAndContinue("Questionnaires");
     }
-
-    async saveAndContinue() {
-        if (await this.page.getByRole('button', { name: 'Save and Continue' }).isVisible()) {
-            await this.page.getByRole('button', { name: 'Save and Continue' }).click();
-            console.log("Saved and continued to the next section.");
-        } else {
-            console.log("Save and Continue button is not visible");
-        }
-        await this.page.waitForTimeout(3000);
-    }
-
-    async fillCompanyProfile() {
-        await this.fillCompanyInformation();
-        await this.fillContactDetails();
-        await this.fillTaxDetails();
-        await this.saveAndContinue();
-        await this.checkNotification('Company profile has been saved successfully');
-        await this.fillEmployeeDetails();
-        await this.saveAndContinue();
-    }
-
-    async fillProductsServices() {
-        await this.fillUNSPSCCodes();
-        await this.saveAndContinue();
-    }
-
-    async fillExternalIdentifiers() {
-        await this.fillLinkYourProfileOnPartner();
-        await this.saveAndContinue();
-
-    }
-
-    // Ouestionarie
 
     async navigateToQuestionnaires() {
-        await this.page.getByLabel('Progress').getByText('Questionnaires').click();
-        const states = {
-            NotStarted: await this.notStarted.isVisible(),
-            InProgress: await this.inProgress.isVisible(),
-            ReadyToPublish: await this.readyToPublish.isVisible(),
-            Published: await this.published.isVisible()
-        };
+        console.log("Assigned Questionnaires by the Buyers to be visible and be compliant");
+        const assignVisible = await this.locators.assignQuestionnaire.isVisible();
+        console.log(`Assigned Questionnaire visibility: ${assignVisible}`);
 
-        if (states.NotStarted || states.InProgress) {
-            console.log(states.NotStarted ? 'Questionnaires Not Started is visible.' : 'Questionnaires in progress is visible.');
-            await this.processQuestionnaire();
-        } else if (states.ReadyToPublish || states.Published) {
-            console.log(states.ReadyToPublish ? 'Ready To Publish Questionnaire is visible.' : 'Published Questionnaire is visible.');
-            await this.updateAndPublishQuestionnaire();
-        } else {
-            console.log('No relevant questionnaire status is visible.');
+        if (await this.locators.notStarted.isVisible()) {
+            console.log("Not Started Questionnaire is visible");
+            await this.handleNotStarted();
+        }
+
+        if (await this.locators.inProgress.isVisible()) {
+            console.log("In Progress Questionnaire is visible");
+            await this.handleInProgress();
+        }
+        if (await this.locators.readyToPublish.isVisible()) {
+            console.log("Ready to Publish Questionnaire is visible");
+            await this.handleReadyToPublish();
+        }
+        if (await this.locators.published.isVisible()) {
+            console.log("Ready to Publish Questionnaire is visible");
         }
     }
 
-    async processQuestionnaire() {
-        await this.continueQuestionnaire();
-        await this.fillQuestionnaire();
-        await this.saveAsDraftAlternateButton.click();
+    async handleNotStarted() {
+        await this.page.locator("div.css-1snmjsk button.css-y1y2s > span.css-xl71ch > svg").click();
+        const beginVisible = await this.locators.beginQuestionnaire.isVisible();
+        console.log(`Begin Questionnaire visibility: ${beginVisible}`);
 
-        const publishVisible = await this.publishQuestionnaireSection.isVisible();
-        if (publishVisible) {
-            console.log('Publish Questionnaire is visible.');
-            await this.saveAndContinue.click();
+        if (beginVisible) {
+            await this.locators.beginQuestionnaire.click();
+            await this.fillQuestionnaire();
+            await this.saveQuestionnaire();
         }
     }
 
-    async updateAndPublishQuestionnaire() {
-        await this.UpdateQuestionnaire();
-        await this.saveAsDraftAlternateButton.click();
+    async handleInProgress() {
+        await this.page.locator("div.css-1snmjsk button.css-y1y2s > span.css-xl71ch > svg").click();
+        const continueVisible = await this.locators.continueQuestionnaire.isVisible();
+        console.log(`Continue Questionnaire visibility: ${continueVisible}`);
 
-        const publishVisible = await this.publishQuestionnaireSection.isVisible();
-        if (publishVisible) {
-            console.log('Publish Questionnaire is visible.');
-            await this.publishButton.click();
+        if (continueVisible) {
+            await this.locators.continueQuestionnaire.click();
+            await this.fillQuestionnaire();
+            await this.saveQuestionnaire();
         }
     }
 
-    async clickButton(selector) {
-        if (await this.page.locator(selector).isVisible()) {
-            await this.page.locator(selector).click();
-        } else {
-            console.log(`Button with selector ${selector} is not visible.`);
-        }
-    }
+    async handleReadyToPublish() {
+        await this.page.locator("div.css-1snmjsk button.css-y1y2s > span.css-xl71ch > svg").click();
+        const updateVisible = await this.locators.updateQuestionnaire.isVisible();
+        console.log(`Update Questionnaire visibility: ${updateVisible}`);
 
-    async BeginQuestionnaire() {
-        await this.clickMenuItem(this.menuButton, 'Begin Questionnaire');
-    }
-
-    async continueQuestionnaire() {
-        await this.clickMenuItem(this.menuButton, 'Continue Questionnaire');
-    }
-
-    async UpdateQuestionnaire() {
-        await this.clickMenuItem(this.menuButton, 'Update Questionnaire');
-    }
-
-    async clickMenuItem(menuSelector, itemName) {
-        const menuButton = this.page.locator(menuSelector);
-        if (await menuButton.isVisible()) {
-            await menuButton.click();
-            const menuItem = this.page.getByRole('menuitem', { name: itemName });
-            await menuItem.waitFor({ state: 'visible', timeout: 10000 });
-            await menuItem.click();
-            console.log(`Clicked '${itemName}' successfully.`);
-        } else {
-            console.log(`Menu button for '${itemName}' is not visible.`);
+        if (updateVisible) {
+            await this.locators.updateQuestionnaire.click();
+            await this.fillQuestionnaire();
+            await this.publishQuestionnaire();
         }
     }
 
@@ -369,25 +333,74 @@ export class companyProfilePage extends Base {
             await this.page.locator(control).click();
         }
 
-        if (await this.saveAsDraftButton.isVisible()) {
-            console.log('Save as Draft button is visible.');
-            await this.saveAsDraftButton.click();
+        if (await this.locators.saveAsDraftButton.isVisible()) {
+            console.log('Save and Continue button is visible.');
+            await this.locators.saveAsDraftButton.click();
         } else {
-            console.log('Save as Draft button is not visible. Cannot save.');
+            console.log('Save and Continue button is not visible. Cannot save.');
+        }
+    }
+
+    async saveQuestionnaire() {
+        const publishVisible = await this.locators.publishQuestionnaireSection.isVisible();
+        console.log(`Publish Questionnaire visibility: ${publishVisible}`);
+
+        if (publishVisible) {
+            await this.locators.saveAndContinueButton.click();
+            await this.page.waitForTimeout(5000);
+        }
+
+    }
+
+    async publishQuestionnaire() {
+        const publishVisible = await this.locators.publishQuestionnaireSection.isVisible();
+        console.log(`Publish Questionnaire visibility: ${publishVisible}`);
+
+        if (publishVisible) {
+            await this.locators.publishButton.click();
+            await this.page.waitForTimeout(10000);
+        }
+    }
+
+    async fillCompanyProfile() {
+        await this.fillCompanyInformation();
+        await this.fillContactDetails();
+        await this.fillTaxDetails();
+        await this.fillTaxRegistrationDocument()
+        await this.fillEmployeeDetails();
+        await this.saveAndContinue('UNSPSC Codes section');
+        await this.checkNotification('Company profile has been saved successfully');
+    }
+
+    async fillProductsServices() {
+        console.log("UNSPSC Codes section is Filled");
+        await this.saveAndContinue("External Identifiers section");
+    }
+
+    async fillExternalIdentifiers() {
+        console.log("Attempting to link your profile on partner ecosystems.");
+
+        if (await this.page.locator("//div[h3[contains(@class, 'chakra-step__title')]/p[text()='External Identifiers'] and p[contains(@class, 'chakra-step__description')]/p[text()='Verification pending']]").isVisible()) {
+            await this.page.waitForTimeout(10000);
+            await this.locators.management.click();
+            console.log("Successfully clicked on Management.");
+        }
+        if (await this.page.locator("//div[h3[contains(@class, 'chakra-step__title')]/p[text()='External Identifiers'] and p[contains(@class, 'chakra-step__description')]/p[text()='completed']]").isVisible()) {
+            await this.saveAndContinue("Management");
+        }
+        console.log("Successfully linked your profile.");
+    }
+
+    async checkCurrentUrl() {
+        const expectedUrl = 'https://qa2.recnyls.com/dashboard/onboarding/external-identifiers';
+        const currentUrl = this.page.url(); // Get the current URL
+
+        if (currentUrl === expectedUrl) {
+            console.log("You are on the correct page:", currentUrl);
+        } else {
+            console.warn("You are NOT on the correct page. Current URL:", currentUrl);
         }
     }
 
 
-    async checkNotification(expectedMessage) {
-        console.log('Notification paragraph is not visible.');
-        // if (await this.notificationParagraph.isVisible()) {
-        //     await this.expect(this.notificationParagraph).toContainText(expectedMessage);
-        //     console.log(`Notification verified: ${expectedMessage}`);
-        // } else {
-        //     console.log('Notification paragraph is not visible.');
-        // }
-    }
-
 }
-
-// export default companyProfilePage;
