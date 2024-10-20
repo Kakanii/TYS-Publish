@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 const { Base } = require("../utility/Base");
 const { inviteSupplierPage } = require("./inviteSupplierPage");
+const path = require('path'); 
 
 let [newPage] = '';
 
@@ -49,6 +50,9 @@ exports.maildropPage = class maildropPage extends Base {
         this.parentlabel = "']//parent::label";
         this.selectAllChkBx = "((//p[text()='Select All']//parent::div//parent::div//parent::div)[5]//*)[8]";
         this.btnEndTwo = "'])[2]";
+        this.dateSelector= "//input[@placeholder='Select Date']";
+        this.dateYear ='combobox';
+        this.dateMonth ="//div[contains(@class, 'react-datepicker__month-dropdown-container')]//select[contains(@class, 'react-datepicker__month-select')]";
     }
 
     async clickOnRegisterTYSFrommaildrop() {
@@ -375,8 +379,8 @@ exports.maildropPage = class maildropPage extends Base {
         console.log("Entered OTP - " + lOtp);
     }
     async clickOnStateDropdown() {
-
-        await newPage.locator(this.selectState).click();
+    await newPage.waitForTimeout(5000);
+       // await newPage.locator(this.selectState).click();
         console.log("Clicked on State dropdown ");
 
     }
@@ -551,6 +555,77 @@ exports.maildropPage = class maildropPage extends Base {
         await newPage.locator(this.textBtn + fieldName + this.btnEndTwo).click();
 
         console.log("Clicked on - " + fieldName);
+    }
+
+    async verifyFieldIsVisible(fieldName) {
+        const fieldLocator = newPage.getByText(fieldName).first();
+        await expect(fieldLocator).toBeVisible();
+        console.log(`Field - ${fieldName} is visible`);
+    }
+
+    async verifyTextContains(locator, expectedText) {
+        const textLocator = newPage.locator(locator);
+        await expect(textLocator).toBeVisible();
+        console.log(`Verified text contains - ${expectedText}`);
+    }
+
+    async selectByRole(role, optionName) {
+        await newPage.getByRole(role, { name: optionName }).click();
+        console.log(`Selected - ${optionName}`);
+        await newPage.waitForTimeout(5000);
+    }
+
+    async clickByRole(role, fieldName) {
+        await newPage.getByRole(role, { name: fieldName }).click();
+        console.log(`Clicked on - ${fieldName}`);
+        await newPage.waitForTimeout(5000);
+
+    }
+
+    // Method to fill text based on placeholder
+    async fillFieldByPlaceholder(placeholder, text) {
+        const element = await newPage.getByPlaceholder(placeholder);
+        await expect(element).toBeVisible(); 
+        await element.fill(text);
+        console.log(`Filled the field with placeholder - ${placeholder}: "${text}"`);
+    }
+
+    async fillFieldByLabel(Label, text) {
+        const element = await newPage.getByLabel(Label);
+        await expect(element).toBeVisible();
+        await element.click();
+        await element.fill(text);
+        console.log(`Filled the field with placeholder - ${Label}: "${text}"`);
+    }
+
+    async selectOption(text, nth){
+        const element = await newPage.locator('label').filter({ hasText: text }).nth(nth);
+        await element.click();
+        console.log(`Selected option with text: "${text}" at position: ${nth}`);
+    }
+
+    async uploadByLabel(label, text,file) {
+        const filePath = path.resolve(__dirname, file);
+        const element = await newPage.getByLabel(label).getByText(text, { exact: true });
+        await element.click();
+        //await newPage.getByLabel(label).setInputFiles(file);;
+        await newPage.waitForTimeout(10000);
+        console.log(`Uploaded file for label - "${label}" with text - "${text}" from path: "${filePath}"`);
+    }
+
+    async selectDate(placeholder,year,month,date) {
+        const element = await newPage.getByPlaceholder(placeholder);
+        await expect(element).toBeVisible(); 
+        await element.click();
+        await newPage.dateYear.nth(1).selectOption(year);
+        await newPage.dateMonth.selectOption(month);
+        console.log("Attempting to select date:", date);
+        const dateLabelElement = await newPage.getByLabel(date);
+        if (await dateLabelElement.count() > 0) {
+            await dateLabelElement.click();
+        } else {
+            console.error(`Date label '${dateLabel}' not found.`);
+        }
     }
 
 }

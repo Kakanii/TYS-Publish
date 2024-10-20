@@ -29,7 +29,7 @@ test.describe('Verify Supplier Registration Page', () => {
         }
     });
     
-    test('@Regressions @Sanity Company profile publish', async ({ page }) => {
+    test('@Regression @Sanity Company profile publish', async ({ page }) => {
         const cpp = new companyProfilePage(page, expect);
         // Login
         await cpp.login('ramaautobuyersupplierpublish@maildrop.cc', 'Password1');
