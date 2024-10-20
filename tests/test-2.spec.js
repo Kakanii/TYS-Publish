@@ -63,7 +63,7 @@ test.describe('Verify Supplier Registration Page', () => {
         await mailPage.verifyInputFieldWith('addressLine2', 'Address2');
         await mailPage.verifyInputFieldWith('city', 'City');
         await mailPage.clickOnStateDropdown();
-        //await mailPage.clickOnText('Alabama');
+
         await mailPage.verifyInputFieldWith('postalCode', '45343-5345');
         await mailPage.clickOnButton('Continue');
         //Select Prodcuts and Services
@@ -81,41 +81,61 @@ test.describe('Verify Supplier Registration Page', () => {
         await mailPage.clickOnCheckBox();
         await mailPage.clickOnButton('Submit');
 
-
         await mailPage.verifyFieldIsVisible('Company Information');
-      
+
+        // If the above method doesn't work, try this alternative:
+        await mailPage.selectDate();
+
         await mailPage.clickByRole('button', 'Select Month');
         await mailPage.selectByRole('menuitemradio', 'April');
         await mailPage.fillFieldByPlaceholder('Write few words about the', 'We are a leading provider of innovative solutions.');
 
+        // Enter Contact Details
         await mailPage.verifyFieldIsVisible('Contact Details');
         await mailPage.fillFieldByPlaceholder('Enter Phone Number', '+1 (123) 456-789');
         await mailPage.fillFieldByPlaceholder('Enter Company Email Address', 'sample@yopmail.com');
 
+        // Tax Details
         await mailPage.verifyFieldIsVisible('Tax Details');
         await mailPage.clickByRole('button', 'Select Business Type');
         await mailPage.selectByRole('menuitemradio', 'Corporation');
 
-       
+        // Upload Tax Registration
+        await mailPage.clickByRole('button', 'Upload');
+        const ein = faker.number.int({ min: 100000000, max: 999999999 }).toString();
+        await mailPage.fillFieldByLabel('Employer Identification', ein);
+        await mailPage.uploadByLabel('Upload Tax Registration', 'Browse');
+        await mailPage.clickByRole('button', 'Upload');
+
+        // Additional Information
         await mailPage.verifyFieldIsVisible('Additional Information');
         await mailPage.selectOption('No', 4);
         await mailPage.fillFieldByLabel('Number of Full Time Employees', '5');
         await mailPage.fillFieldByLabel('Number of Temporary and', '5');
-
-    //     await mailPage.clickByRole('button', 'Upload');
-    //     await mailPage.fillFieldByLabel('Employer Identification', faker.number.int({ min: 100000000, max: 999999999 }).toString());
-    //    try {
-    //     //await mailPage.fillFieldByLabel('Employer Identification', '123456789');
-    //     await mailPage.uploadByLabel('Upload Tax Registration', 'Browse');
-    //     await mailPage.clickByRole('button', 'Upload');
-    //    } catch (error) {
-        
-    //    }
-
-       //await mailPage.fillFieldByPlaceholder('Select Date', '0');
-        await mailPage.selectDate('Select Date','2024','0','Choose Saturday, January 13th,');
         await mailPage.clickByRole('button', 'Save and Continue');
 
+        // Select All UNSPSC Codes
+        await mailPage.SelectAllUNSPSCCodes();
+        await mailPage.clickByRole('button', 'Save and Continue');
+        await mailPage.clickByRole('button', 'Save and Continue');
+
+        // Assign Contact
+        for (let i = 0; i < 3; i++) {
+            await mailPage.clickByRole('button', 'Assign Contact');
+            await mailPage.clickByRole('button', 'Choose an Existing Contact');
+            await mailPage.selectByRole('menuitemradio', 'First Name Last Name - CEO');
+            await mailPage.clickByRole('button', 'Add Contact');
+
+        }
+        await mailPage.clickByRole('button', 'Continue');
+        await mailPage.clickByRole('button', 'Save and Continue');
+
+        // Verify Profile Readiness and Publish
+        await mailPage.verifyText('Profile Readiness')
+        await mailPage.verifyText('%Completed')
+        await mailPage.clickByRole('button', 'Publish');
+        await mailPage.verifyText('Publish Profile')
+        await mailPage.clickByRole('button', 'Publish');
     });
 
 
